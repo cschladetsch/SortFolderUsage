@@ -42,7 +42,7 @@ for i in $(seq 1 $runs); do
 
     # Time for du -sh | sort -rh (Unix command)
     start_time=$(date +%s.%N)
-    du_sort_output=$(eval $cmd_du_sort)  # Use eval to run du -sh * | sort -rh
+    du_sort_output=$(du -sh * | sort -rh)  # No need for eval, just run the command directly
     end_time=$(date +%s.%N)
     du_sort_time=$(echo "$end_time - $start_time" | bc)
     du_sort_total_time=$(echo "$du_sort_total_time + $du_sort_time" | bc)
@@ -61,6 +61,7 @@ for i in $(seq 1 $runs); do
 done
 
 # Final averages
+echo "==========================="
 echo "Final Results after $runs runs:"
 du_sort_win_avg=$(calculate_average "$du_sort_win_total_time" "$runs")
 du_sort_unix_avg=$(calculate_average "$du_sort_unix_total_time" "$runs")
