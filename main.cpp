@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
     }
 
     std::sort(entries.begin(), entries.end(),
-              [](const DirEntry& a, const DirEntry& b) { return a.size > b.size; });
+              [](const DirEntry& a, const DirEntry& b) { return a.size < b.size; });
 
     for (const auto& entry : entries) {
         std::cout << std::left << std::setw(12) << human_readable_size(entry.size) << entry.name << std::endl;

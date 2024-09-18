@@ -126,7 +126,7 @@ int wmain(int argc, wchar_t* argv[]) {
     WaitForMultipleObjects(num_threads, threads, TRUE, INFINITE);
 
     // Sort directories by size
-    std::sort(entries.begin(), entries.end(), [](const DirEntry& a, const DirEntry& b) { return a.size > b.size; });
+    std::sort(entries.begin(), entries.end(), [](const DirEntry& a, const DirEntry& b) { return a.size < b.size; });
 
     // Print results
     ULONGLONG total_size = 0;
