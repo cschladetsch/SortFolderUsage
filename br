@@ -1,2 +1,1 @@
-g++ -O3 -march=native -mtune=native -pthread -std=c++17 main.cpp -o du_sort
-
+g++ -O3 -march=native -mtune=native -pthread -std=c++17 main.cpp -o ~/bin/du_sort
