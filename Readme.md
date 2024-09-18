@@ -98,45 +98,38 @@ I could run it again on my Host Controller:
 But I haven't. Results should be similar in terms of percentage performance. For me, I just wanted to optimise for spinning disks. 
 
 ```bash
-❯ fast_du_sort/profile.sh
+❯ fast_du_sort/profile.sh .
 Run #1:
-fast_du_sort run #1 time: 56.139556722 seconds
-du -sh | sort -rh run #1 time: 87.789694778 seconds
+du_sort.exe run #1 time: .275033909 seconds
+du_sort (Linux/WSL) run #1 time: 41.644772339 seconds
+du -sh | sort -rh run #1 time: 82.141979004 seconds
 Progressive average time after 1 runs:
-fast_du_sort average: 56.139 seconds
-du -sh | sort -rh average: 87.789 seconds
+du_sort.exe average: .275 seconds
+du_sort (Linux/WSL) average: 41.644 seconds
+du -sh | sort -rh average: 82.141 seconds
 -------------------------
 Run #2:
-fast_du_sort run #2 time: 56.311411533 seconds
-du -sh | sort -rh run #2 time: 90.855049047 seconds
+du_sort.exe run #2 time: .282510852 seconds
+du_sort (Linux/WSL) run #2 time: 42.952263754 seconds
+du -sh | sort -rh run #2 time: 83.366270729 seconds
 Progressive average time after 2 runs:
-fast_du_sort average: 56.225 seconds
-du -sh | sort -rh average: 89.322 seconds
+du_sort.exe average: .278 seconds
+du_sort (Linux/WSL) average: 42.298 seconds
+du -sh | sort -rh average: 82.754 seconds
 -------------------------
 Run #3:
-fast_du_sort run #3 time: 54.069787063 seconds
-du -sh | sort -rh run #3 time: 90.927077568 seconds
+du_sort.exe run #3 time: .275801487 seconds
+du_sort (Linux/WSL) run #3 time: 42.493243206 seconds
+du -sh | sort -rh run #3 time: 83.176115087 seconds
 Progressive average time after 3 runs:
-fast_du_sort average: 55.506 seconds
-du -sh | sort -rh average: 89.857 seconds
--------------------------
-Run #4:
-fast_du_sort run #4 time: 57.467005665 seconds
-du -sh | sort -rh run #4 time: 89.683100386 seconds
-Progressive average time after 4 runs:
-fast_du_sort average: 55.996 seconds
-du -sh | sort -rh average: 89.813 seconds
--------------------------
-Run #5:
-fast_du_sort run #5 time: 55.003843940 seconds
-du -sh | sort -rh run #5 time: 90.371428816 seconds
-Progressive average time after 5 runs:
-fast_du_sort average: 55.798 seconds
-du -sh | sort -rh average: 89.925 seconds
--------------------------
-Final Results after 5 runs:
-fast_du_sort average: 55.798 seconds
-du -sh | sort -rh average: 89.925 seconds
+du_sort.exe average: .277 seconds
+du_sort (Linux/WSL) average: 42.363 seconds
+du -sh | sort -rh average: 82.894 seconds
+========================
+Final Results after 3 runs:
+du_sort.exe average: .277 seconds
+du_sort (Linux/WSL) average: 42.363 seconds
+du -sh | sort -rh average: 82.894 seconds
 ```
 
 ## Error Handling

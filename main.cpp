@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
               [](const DirEntry& a, const DirEntry& b) { return a.size > b.size; });
 
     for (const auto& entry : entries) {
-        std::cout << human_readable_size(entry.size) << "\t" << entry.name << std::endl;
+        std::cout << human_readable_size(entry.size) << "\t\t" << entry.name << std::endl;
     }
 
     std::cout << "\nTotal size: " << human_readable_size(total_size) << std::endl;

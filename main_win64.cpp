@@ -127,7 +127,7 @@ int wmain(int argc, wchar_t* argv[]) {
     // Print results
     ULONGLONG total_size = 0;
     for (const auto& entry : entries) {
-        std::wcout << HumanReadableSize(entry.size) << L"\t" << entry.name << std::endl;
+        std::wcout << HumanReadableSize(entry.size) << L"\t\t" << entry.name << std::endl;
         total_size += entry.size;
     }
 
