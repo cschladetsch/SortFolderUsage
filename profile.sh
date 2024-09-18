@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Number of times to run each command
-runs=5
+runs=3
 
 # Top-level variables for the two commands to compare
 cmd_fast_du_sort="du_sort ." # Replace this with the actual fast_du_sort command or path
@@ -28,7 +28,7 @@ for i in $(seq 1 $runs); do
     end_time=$(date +%s.%N)
     fast_du_sort_time=$(echo "$end_time - $start_time" | bc)
     fast_du_sort_total_time=$(echo "$fast_du_sort_total_time + $fast_du_sort_time" | bc)
-    echo "fast_du_sort run #$i time: $fast_du_sort_time seconds"
+    echo "du_sort run #$i time: $fast_du_sort_time seconds"
 
     # Time for du -sh | sort -rh (run the second command)
     start_time=$(date +%s.%N)
@@ -43,7 +43,7 @@ for i in $(seq 1 $runs); do
     du_sort_avg=$(calculate_average "$du_sort_total_time" "$i")
 
     echo "Progressive average time after $i runs:"
-    echo "fast_du_sort average: $fast_du_sort_avg seconds"
+    echo "du_sort average: $fast_du_sort_avg seconds"
     echo "du -sh | sort -rh average: $du_sort_avg seconds"
     echo "-------------------------"
 done
