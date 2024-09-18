@@ -4,8 +4,8 @@
 runs=3
 
 # Top-level variables for the three commands to compare
-cmd_du_sort_win="fast_du_sort/du_sortw.exe ." # Replace this with the actual Windows du_sort executable path
-cmd_du_sort_unix="fast_du_sort/du_sort ."    # Replace this with the actual Linux/WSL du_sort path
+cmd_du_sort_win="du_sortw.exe ." # Replace this with the actual Windows du_sort executable path
+cmd_du_sort_unix="du_sort ."    # Replace this with the actual Linux/WSL du_sort path
 cmd_du_sort="du -sh * | sort -rh"     # Standard du command
 
 # Initialize time accumulators for all commands

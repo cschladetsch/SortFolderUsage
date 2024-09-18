@@ -2,6 +2,7 @@
 
 #include <windows.h>
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -84,6 +85,8 @@ std::wstring HumanReadableSize(ULONGLONG size) {
 }
 
 int wmain(int argc, wchar_t* argv[]) {
+    std::wcout << "Built: " << __DATE__ << " at " << __TIME__ << std::endl;
+
     if (argc != 2) {
         std::wcerr << L"Usage: " << argv[0] << L" <directory_path>" << std::endl;
         return 1;
@@ -110,9 +113,10 @@ int wmain(int argc, wchar_t* argv[]) {
 
     FindClose(hFind);
 
+    const auto NumThreads = 20u;
     // Start worker threads
-    const unsigned int num_threads = std::min(static_cast<unsigned int>(dir_queue.size()), 4u); // Limit to 4 threads for simplicity
-    HANDLE threads[4];
+    const unsigned int num_threads = std::min(static_cast<unsigned int>(dir_queue.size()), NumThreads); // Limit to 4 threads for simplicity
+    HANDLE threads[NumThreads];
 
     for (unsigned int i = 0; i < num_threads; ++i) {
         threads[i] = CreateThread(nullptr, 0, Worker, nullptr, 0, nullptr);
@@ -127,7 +131,7 @@ int wmain(int argc, wchar_t* argv[]) {
     // Print results
     ULONGLONG total_size = 0;
     for (const auto& entry : entries) {
-        std::wcout << HumanReadableSize(entry.size) << L"\t\t" << entry.name << std::endl;
+        std::wcout << std:left << std::setw(12) << HumanReadableSize(entry.size) << entry.name << std::endl;
         total_size += entry.size;
     }
 

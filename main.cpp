@@ -1,3 +1,5 @@
+#include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <atomic>
 #include <filesystem>
@@ -68,7 +70,9 @@ std::string human_readable_size(uintmax_t size) {
     return buf;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char **argv) {
+    std::cout << "Built: " << __DATE__ << " at " << __TIME__ << std::endl;
+
     const char* path = (argc > 1) ? argv[1] : ".";
     
     std::vector<std::thread> threads;
@@ -84,7 +88,7 @@ int main(int argc, char* argv[]) {
               [](const DirEntry& a, const DirEntry& b) { return a.size > b.size; });
 
     for (const auto& entry : entries) {
-        std::cout << human_readable_size(entry.size) << "\t\t" << entry.name << std::endl;
+        std::cout << std::left << std::setw(12) << human_readable_size(entry.size) << entry.name << std::endl;
     }
 
     std::cout << "\nTotal size: " << human_readable_size(total_size) << std::endl;
