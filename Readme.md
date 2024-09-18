@@ -30,6 +30,12 @@ g++ -O3 -march=native -mtune=native -pthread -std=c++17 folder_size_summary.cpp 
 
 This command enables optimizations and multi-threading support.
 
+## Design
+
+This is what ChatGPT thought about my software design:
+
+![Design](resources/design.jpg)
+
 ## Usage
 
 Run the compiled program with a directory path as an argument:
