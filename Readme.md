@@ -4,6 +4,8 @@
 
 The Folder Size Summary Tool is a high-performance C++ program designed to quickly calculate and display the sizes of subdirectories within a specified directory. It's particularly optimized for use in Windows Subsystem for Linux (WSL) environments, but can run on any POSIX-compliant system.
 
+It obtains around %40 improvement over using `du -sh | sort -rh`.
+
 ## Features
 
 - Fast, multi-threaded directory size calculation
