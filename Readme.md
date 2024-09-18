@@ -62,6 +62,7 @@ Total size: 2.8G
 
 I ran this on my locally downloaded complete copy of 138 GitHub repos, including all .git folders.
 
+Overall, I got a %40 improvement in performance over using `du -sh | sort -rh`.
 
 Hardware: 
 * Serial ATA 6BG/s. 
