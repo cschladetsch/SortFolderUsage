@@ -6,6 +6,22 @@ The Folder Size Summary Tool is a high-performance C++ program designed to quick
 
 It obtains around %40 improvement over using `du -sh | sort -rh`.
 
+### Update
+
+Using `main_64.cpp` takes a fraction of a second over the two other alternatives(!).
+
+So, it takes 0.33 seconds to do the job using `main_win64.cpp` over either the general `main.cpp` (which was already optimised for WLS and Ubuntu), or the shell command  `du -sh | sort -rh`.
+
+Remember: native solutions are better solutions.
+
+I'm not going to change the rest of this Readme. I'm just going to say that after some effort and research and using native API, I went from ~1 minute to ~40 seconds to ~0.3 seconds.
+
+### Best answer
+
+```
+$ cl /EHsc /W4 /std:c++17 main_win64.cpp
+```
+
 ## Features
 
 - Fast, multi-threaded directory size calculation

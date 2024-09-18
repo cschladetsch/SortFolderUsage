@@ -4,7 +4,8 @@
 runs=3
 
 # Top-level variables for the two commands to compare
-cmd_fast_du_sort="du_sort ." # Replace this with the actual fast_du_sort command or path
+#cmd_fast_du_sort="du_sort ." # Replace this with the actual fast_du_sort command or path
+cmd_fast_du_sort="fast_du_sort/main_win64.exe ." # Replace this with the actual fast_du_sort command or path
 cmd_du_sort="du -sh * | sort -rh" # Standard du command
 
 # Initialize time accumulators for both commands
