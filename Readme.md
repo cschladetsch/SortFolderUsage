@@ -58,6 +58,62 @@ Total size: 2.8G
 - It's optimized for WSL environments, taking into account potential I/O limitations.
 - For very large directories or filesystems with millions of files, the tool may take longer to complete.
 
+### Performance
+
+I ran this on my locally downloaded complete copy of 138 GitHub repos, including all .git folders.
+
+
+Hardware: 
+* Serial ATA 6BG/s. 
+* Original Device Name: ASMedia ASM1061 PCI-E x1 SATA 6Gbps Controller
+
+I could run it again on my Host Controller:
+* Samsung NVMe PCIe SSD Controller
+
+But I haven't. Results should be similar in terms of percentage performance. For me, I just wanted to optimise for spinning disks. 
+
+```bash
+❯ fast_du_sort/profile.sh
+Run #1:
+fast_du_sort run #1 time: 56.139556722 seconds
+du -sh | sort -rh run #1 time: 87.789694778 seconds
+Progressive average time after 1 runs:
+fast_du_sort average: 56.139 seconds
+du -sh | sort -rh average: 87.789 seconds
+-------------------------
+Run #2:
+fast_du_sort run #2 time: 56.311411533 seconds
+du -sh | sort -rh run #2 time: 90.855049047 seconds
+Progressive average time after 2 runs:
+fast_du_sort average: 56.225 seconds
+du -sh | sort -rh average: 89.322 seconds
+-------------------------
+Run #3:
+fast_du_sort run #3 time: 54.069787063 seconds
+du -sh | sort -rh run #3 time: 90.927077568 seconds
+Progressive average time after 3 runs:
+fast_du_sort average: 55.506 seconds
+du -sh | sort -rh average: 89.857 seconds
+-------------------------
+Run #4:
+fast_du_sort run #4 time: 57.467005665 seconds
+du -sh | sort -rh run #4 time: 89.683100386 seconds
+Progressive average time after 4 runs:
+fast_du_sort average: 55.996 seconds
+du -sh | sort -rh average: 89.813 seconds
+-------------------------
+Run #5:
+fast_du_sort run #5 time: 55.003843940 seconds
+du -sh | sort -rh run #5 time: 90.371428816 seconds
+Progressive average time after 5 runs:
+fast_du_sort average: 55.798 seconds
+du -sh | sort -rh average: 89.925 seconds
+-------------------------
+Final Results after 5 runs:
+fast_du_sort average: 55.798 seconds
+du -sh | sort -rh average: 89.925 seconds
+```
+
 ## Error Handling
 
 - The program will skip files and directories it doesn't have permission to access.
